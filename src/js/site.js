@@ -133,16 +133,16 @@ window.clearPoint = function () {
 window.graphPoint = function () {
   window.clearPlane();
   window.drawPlane();
-  let valuex = parseInt(window.inputX.value);
-  let valuey = parseInt(window.inputY.value);
+  let valuex = parseFloat(window.inputX.value);
+  let valuey = parseFloat(window.inputY.value);
   if (isNaN(valuex) || isNaN(valuey)) {
     alert('Los valores deben ser números');
 
     return false;
   }
 
-  let lengthx = Math.abs(valuex).toString().length;
-  let lengthy = Math.abs(valuey).toString().length;
+  let lengthx = Math.abs(parseInt(valuex)).toString().length;
+  let lengthy = Math.abs(parseInt(valuey)).toString().length;
 
   let countDigit = (lengthx > lengthy) ? lengthx : lengthy;
 
@@ -159,8 +159,8 @@ window.graphPoint = function () {
   let valuexCanvasPre = Math.abs(valuex);
   let valueyCanvasPre = Math.abs(valuey);
   if (countDigit > 1) {
-    valuexCanvasPre = Math.abs(valuex) / (10 * (countDigit - 1));
-    valueyCanvasPre = Math.abs(valuey) / (10 * (countDigit - 1));
+    valuexCanvasPre = Math.abs(valuex) / Math.pow(10, (countDigit - 1));
+    valueyCanvasPre = Math.abs(valuey) / Math.pow(10, (countDigit - 1));
   }
 
   let valuexCanvas = sideHalf - (valuexCanvasPre * 25);
