@@ -123,6 +123,13 @@ window.clearPlane = function () {
   window.lienzo.clearRect(0, 0, window.side, window.side);
 };
 
+window.clearPoint = function () {
+  window.clearPlane();
+  window.drawPlane();
+  window.inputX.value = '';
+  window.inputY.value = '';
+};
+
 window.graphPoint = function () {
   window.clearPlane();
   window.drawPlane();
