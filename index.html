@@ -13,30 +13,35 @@
 <body>
     <section id="point-graphic" class="py-10">
         <div class="container m-auto">
-            <h2 class="text-2xl">Graficar punto en el plano</h2>
-            <div>
-                <div class="py-1 flex">
-                    <div class="form-x px-2">
-                        <label for="" class="block">Ingresar valor del eje X</label>
-                        <input type="number" name="value_x" id="" class="form-input block">
+            <h2 class="text-2xl mb-1 text-black font-bold">Graficar punto en el plano</h2>
+            <div class="flex flex-wrap">
+                <div>
+                    <div class="py-1 flex">
+                        <div class="form-x px-2">
+                            <label for="" class="block">Ingresar valor del eje X</label>
+                            <input type="number" name="value_x" id="value_x" class="form-input block">
+                        </div>
+                        <div class="form-y px-2">
+                            <label for="" class="block">Ingresar valor del eje Y</label>
+                            <input type="number" name="value_y" id="value_y" class="form-input block">
+                        </div>
                     </div>
-                    <div class="form-y px-2">
-                        <label for="" class="block">Ingresar valor del eje Y</label>
-                        <input type="number" name="value_y" id="" class="form-input block">
+                    <div class="py-4">
+                        <button type="button" onclick="window.graphPoint()"
+                            class="bg-green-700 hover:bg-green-500 px-8 py-3 rounded text-white transition-all">
+                            Graficar punto
+                        </button>
                     </div>
                 </div>
-                <div class="py-4">
-                    <button type="button"
-                        class="bg-green-700 hover:bg-green-500 px-8 py-3 rounded text-white transition-all">
-                        Graficar punto
-                    </button>
-                </div>
+                <canvas width="500" height="500" id="canvas-point"></canvas>
             </div>
         </div>
     </section>
     <section id="serie-graphic" class="py-10">
         <div class="container m-auto">
-            <h2 class="text-2xl">Graficar serie en gráfica de barras</h2>
+            <h2 class="font-bold mb-1 text-2xl text-black">Graficar serie en gráfica de barras</h2>
+            <p class="mb-3 text-gray-700">Los valores en x deben ser palabras y los valores en y deben ser números.</p>
+            <p class="w-50"></p>
             <div class="flex flex-wrap">
                 <form id="form-serie" onsubmit="return false;">
                     <div class="py-1 flex">
@@ -109,6 +114,21 @@
     <script src="dist/js/bundle.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
+            function drawPlane() {
+
+            }
+
+            let canvas = document.querySelector('#canvas-point');
+            side = canvas.width;
+            sideHalf = side / 2;
+
+            let lienzo = canvas.getContext("2d");
+
+            window.lienzo = lienzo;
+
+            lienzo.lineWidth = 1;
+
+
 
         });
     </script>
